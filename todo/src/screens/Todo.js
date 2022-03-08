@@ -39,27 +39,27 @@ export const Todo = () => {
   };
 
   return (
-    <div style={style.total}>
-      <form style={style.form}>
+    <div style={styles.total}>
+      <form style={styles.form}>
         <input
           value={task}
           placeholder="テキストを入力･･･"
           onChange={handleNewTask}
-          style={style.input}
+          style={styles.input}
         />
         <span onClick={handleSubmit}>
-          <IconContext.Provider value={{ color: "#1760a0", size: "1.3em" }}>
+          <IconContext.Provider value={{ color: "#1760a0", size: "1.2em" }}>
             <FaPlusCircle />
           </IconContext.Provider>
         </span>
       </form>
-      <p style={style.line}></p>
-      <ul style={style.lists}>
+      <p style={styles.line}></p>
+      <ul style={styles.lists}>
         {todos.map((todo, index) => (
-          <li key={index} style={style.todos}>
+          <li key={index} style={styles.todos}>
             {todo.task}
-            <span onClick={() => handleRemoveTask(index)} style={style.trash}>
-              <IconContext.Provider value={{ color: "grey" }}>
+            <span onClick={() => handleRemoveTask(index)} style={styles.trash}>
+              <IconContext.Provider value={{ color: "#1760a0", size: "1.2em" }}>
                 <FaTrashAlt />
               </IconContext.Provider>
             </span>
@@ -70,19 +70,22 @@ export const Todo = () => {
   );
 };
 
-const style = {
+const styles = {
   total: {
     marginTop: "40px",
+    marginLeft: "150px",
     height: "800px",
-    width: "600px",
+    width: "550px",
     borderRadius: "10px",
-    marginLeft: "10px",
-    border: "4px solid gray",
+    border: "4px solid grey",
+    backgroundColor: "white",
   },
   form: {
     textAlign: "center",
     marginTop: "30px",
     marginBottom: "30px",
+    // backgroundColor: "tomato",
+    fontSize: "20px",
   },
   input: {
     width: "400px",
@@ -94,13 +97,16 @@ const style = {
     borderBottom: "2px solid grey",
   },
   lists: {
+    width: "520px",
+    paddingLeft: "60px",
     // backgroundColor: "tomato",
-    width: "560px",
-    // marginLeft: "10px",
   },
   todos: {
-    textAlign: "center",
-    width: "500px",
+    paddingLeft: "30px",
+    textAlign: "left",
+    width: "400px",
+    height: "50px",
+    lineHeight: "50px",
     listStyle: "none",
     fontSize: "20px",
     border: "1px solid gray",
@@ -109,6 +115,7 @@ const style = {
     boxShadow: "2px 2px 4px gray",
     display: "grid",
     gridTemplateColumns: "4fr 1fr",
+    // backgroundColor: "tomato",
   },
   trash: {
     textAlign: "center",
